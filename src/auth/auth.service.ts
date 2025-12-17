@@ -23,6 +23,9 @@ export class AuthService {
             password: hash       // Override password with hashed version
         });
 
-        return user;
+        const payload = {sub:user._id};
+        const token = await this.jwtService.signAsync(payload);
+
+        return token;
     }
 }
