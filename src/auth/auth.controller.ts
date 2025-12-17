@@ -8,7 +8,7 @@ export class AuthController {
     constructor(private authService:AuthService){};
 
     @Post('register')
-    register(@Body() registerUserDto : RegisterUserDto){
-        return this.authService.registerUser(registerUserDto);
+    async register(@Body() registerUserDto : RegisterUserDto){
+        return await this.authService.registerUser(registerUserDto);
     }
 }
